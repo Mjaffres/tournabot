@@ -1,0 +1,8 @@
+*.env
+*.sqlite3
+*.json
+*.pyc
+settings_app.json
+settings_app_prod.json
+migrations/
+__pycache__

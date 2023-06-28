@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> You are connected</title>
+    <!-- import bootstrap css -->
+    <link rel="stylesheet" href="/static/lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+
+    <!-- import custom static files -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- import custom static files -->
+    <link rel="stylesheet" href="/static/css/home.css">
+  </head>
+  <body>
+    <div id="container_form">
+        <form action="{% url 'register_player' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_ul }}
+            <input type="submit" value="OK">
+        </form>
+    </div>
+  </body>
+  <script>
+  </script>
+</html>

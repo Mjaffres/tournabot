@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Login tournament</title>
+    <!-- import bootstrap css -->
+    <link rel="stylesheet" href="/static/lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+
+    <!-- import custom static files -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- import custom static files -->
+    <link rel="stylesheet" href="/static/css/login_page.css">
+  </head>
+  <body>
+    <div class="login">
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <div class="form-elem">
+        <div>User name :</div>
+        <input type="text" id="username" name="username" />
+      </div>
+      <div class="form-elem">
+        <div>Password :</div>
+        <input type="password" name="password" input-type="hidden" />
+      </div>
+      <div class="form-elem">
+        <input class="logBtn" type="submit" value="Login">
+      </div>
+    </form>
+  </div>
+  </body>
+</html>

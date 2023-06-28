@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> You are connected</title>
+    <!-- import bootstrap css -->
+    <link rel="stylesheet" href="/static/lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+
+    <!-- import custom static files -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- import custom static files -->
+    <link rel="stylesheet" href="/static/css/home.css">
+  </head>
+  <body>
+    <div id="register_tournament">
+      {{ match_name}}
+    </div>
+    <table>
+      <tbody>
+          {% for p in players %}
+              <tr>
+                  <td>{{p.name}}</td>
+                  <td>{{p.elo}}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

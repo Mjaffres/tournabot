@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> You are connected</title>
+    <!-- import bootstrap css -->
+    <link rel="stylesheet" href="/static/lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+
+    <!-- import custom static files -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- import custom static files -->
+    <link rel="stylesheet" href="/static/css/home.css">
+  </head>
+  <body>
+    <div id="register_tournament">
+      {{ tournament_name}}
+    </div>
+    <table>
+      <thead>
+        <tr>
+            <th>Players</th>
+            <th>ELO</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for p in rplayers %}
+              <tr>
+                  <td>{{p.name}}</td>
+                  <td>{{p.elo}}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+            <th>Match</th>
+            <th>Stage</th>
+            <th>Finished</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for m in matchs %}
+              <tr>
+                  <td onclick="ShowMatch(this)" dest="{% url 'match' m.id %}">{{m.name}}</td>
+                  <td>{{m.match_rank}}</td>
+                  <td>{{m.finished}}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+    <button onclick="CreateTreeTournament()">Make tree tournament</button>
+  </body>
+  <script>
+    function CreateTreeTournament(){
+        var url = "{% url 'make_tournament_tree' tournament_id %}"
+        document.location.href=url
+    }
+    function ShowMatch(e) {
+            var url=e.attributes.dest.value
+            document.location.href=url
+        }
+  </script>
+</html>

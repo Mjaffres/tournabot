@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> You are connected</title>
+    <!-- import bootstrap css -->
+    <link rel="stylesheet" href="/static/lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+
+    <!-- import custom static files -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- import custom static files -->
+    <link rel="stylesheet" href="/static/css/home.css">
+  </head>
+  <body>
+    <div class="home">
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+          <input class="logBtn" type="submit" value="Logout">
+    </form>
+    <button id="register_tournament">
+      Register for current tournament
+    </button>
+    <div id="show_tournament">
+      Show current tournament
+      <form name= "tournament_selector" method="POST">
+        <select name="selection" onchange=ChangeTournament()>
+        {% for t in tournaments %}
+            <option value="{% url 'tournament' t.id %}" >{{ t.name }}</option>
+        {% endfor %}
+        </select>
+      </form>
+    </div>
+    <button id="create_tournament" onclick="Movetocreatetournament()">
+       create a new tournament
+    </button>
+    <button id="create_player" onclick="Movetocreateplayer()">
+      create a new player
+    </button>
+    <button id="register_player" onclick="Movetoregisterplayer()">
+      register a player for tournament
+    </button>
+  </body>
+  <script>
+    function ChangeTournament() {
+        var url=document.tournament_selector.selection.value
+        document.location.href=url
+    }
+    function Movetocreatetournament(){
+        var url = "{% url 'template_create_tournament' %}"
+        document.location.href=url
+    }
+    function Movetocreateplayer(){
+        var url = "{% url 'template_create_player' %}"
+        document.location.href=url
+    }
+    function Movetoregisterplayer(){
+        var url = "{% url 'template_register_player' %}"
+        document.location.href=url
+    }
+  </script>
+</html>
