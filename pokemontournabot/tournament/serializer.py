@@ -21,3 +21,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = registration
         fields =('tournament', 'player')
+
+class PlayerInMatchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = player_in_match
+        fields =('match', 'result_pos', 'player')

@@ -12,7 +12,7 @@ from rest_framework import viewsets
 
 from .models import tournament, player, registration, match, player_in_match
 from .forms import create_tournament_form, create_player_form, register_player_form
-from .serializer import PlayerSerializer, MatchSerializer, TournamentSerializer, RegistrationSerializer
+from .serializer import PlayerSerializer, MatchSerializer, TournamentSerializer, RegistrationSerializer, PlayerInMatchSerializer
 # Create your views here.
 
 # rest API
@@ -33,7 +33,9 @@ class RegistrationViewSet(viewsets.ModelViewSet):
     queryset = registration.objects.all().order_by('id')
     serializer_class = RegistrationSerializer
 
-
+class PlayerInMatchViewSet(viewsets.ModelViewSet):
+    queryset = player_in_match.objects.all().order_by('id')
+    serializer_class = PlayerInMatchSerializer
 
 ## login view
 
