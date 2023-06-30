@@ -214,9 +214,9 @@ def make_tournament_tree(request, tournament_id):
     if nb_match > 4 :
         for i in range(8):
             r16 = match.objects.get_or_create(
-                match_rank='ROUND OF 16',
+                match_rank='ROUND OF 64',
                 tournament=tour,
-                name=tour.name+' - ROUND OF 16 #' +str(i),
+                name=tour.name+' - ROUND OF 64 #' +str(i),
                 next_match_id = qf_list[math.floor(i/2)].id,
                 finished=False
             )
@@ -224,9 +224,9 @@ def make_tournament_tree(request, tournament_id):
     if nb_match > 8 :
         for i in range(16):
             r32 = match.objects.get_or_create(
-                match_rank='ROUND OF 32',
+                match_rank='ROUND OF 128',
                 tournament=tour,
-                name=tour.name+' - ROUND OF 32 #' +str(i),
+                name=tour.name+' - ROUND OF 128 #' +str(i),
                 next_match_id = qf_list[math.floor(i/2)].id,
                 finished=False
             )
@@ -234,9 +234,9 @@ def make_tournament_tree(request, tournament_id):
     if nb_match > 16 :
         for i in range(32):
             r64 = match.objects.get_or_create(
-                match_rank='ROUND OF 64',
+                match_rank='ROUND OF 256',
                 tournament=tour,
-                name=tour.name+' - ROUND OF 64 #' +str(i),
+                name=tour.name+' - ROUND OF 256 #' +str(i),
                 next_match_id = qf_list[math.floor(i/2)].id,
                 finished=False
             )

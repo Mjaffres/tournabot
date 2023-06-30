@@ -12,7 +12,7 @@ class tournament(models.Model):
 
 class player(models.Model):
     name = models.CharField(max_length=128)
-    gamer_id = models.BigIntegerField()
+    gamer_id = models.CharField(max_length=128)
     elo = models.BigIntegerField()
 
     def __str__(self):
@@ -27,9 +27,9 @@ class match(models.Model):
         ("FINAL", "FINAL"),
         ("SEMI-FINAL", "SEMI-FINAL"),
         ("QUARTER-FINAL", "QUARTER-FINAL"),
-        ("ROUND OF 16", "ROUND OF 16"),
-        ("ROUND OF 32", "ROUND OF 32"),
-        ("ROUND OF 64", "ROUND OF 64")
+        ("ROUND OF 64", "ROUND OF 64"),
+        ("ROUND OF 128", "ROUND OF 128"),
+        ("ROUND OF 256", "ROUND OF 256")
     ]
     name = models.CharField(max_length=128)
     next_match_id = models.BigIntegerField(default=None, blank=True, null=True)
